@@ -1,0 +1,67 @@
+# Improved workflow for building and deploying a Jekyll site to GitHub Pages
+name: Deploy Jekyll with GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Ruby and Jekyll
+        uses: ruby/setup-ruby@v2
+        with:
+          ruby-version: '3.1'  # Specify the Ruby version compatible with your Jekyll version
+
+      - name: Install dependencies
+        run: |
+          gem install bundler
+          bundle install
+
+      - name: Build site with Jekyll
+        run: |
+          bundle exec jekyll build -d ./_site
+
+      - name: Upload site as artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: jekyll-site
+          path: ./_site
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Download site artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: jekyll-site
+
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v4
+        with:
+          # Specify the directory containing the built site
+          directory: ./_site
+
+      - name: Notify deployment success
+        if: success()
+        run: echo "Deployment to GitHub Pages successful!"
+        
+      - name: Notify deployment failure
+        if: failure()
+        run: echo "Deployment to GitHub Pages failed."
