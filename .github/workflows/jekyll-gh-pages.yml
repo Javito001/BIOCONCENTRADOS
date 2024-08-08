@@ -30,14 +30,11 @@ jobs:
 
       - name: Install Jekyll and Bundler
         run: |
-          cd my_site  # Asegúrate de que este sea el subdirectorio correcto
           gem install bundler jekyll
           bundle install
 
       - name: Build Site with Jekyll
-        run: |
-          cd my_site  # Asegúrate de que este sea el subdirectorio correcto
-          bundle exec jekyll build --destination ../_site
+        run: bundle exec jekyll build --destination ./_site
 
       - name: Upload Artifact
         uses: actions/upload-pages-artifact@v3
