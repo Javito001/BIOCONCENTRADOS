@@ -3,65 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Redes Sociales BioConcentrados</title>
+    <title>Redes Sociales - BIOCONCENTRADOS</title>
     <style>
         body {
-            font-family: 'Arial', sans-serif;
-            background-color: #e8f5e9;
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+            text-align: center;
             margin: 0;
             padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
         }
         .container {
-            text-align: center;
-            background: #ffffff;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            max-width: 500px;
-            width: 100%;
+            max-width: 600px;
+            margin: 100px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
         }
         h1 {
-            color: #00796b;
+            font-size: 24px;
             margin-bottom: 20px;
-            font-size: 28px;
-            font-weight: 600;
-        }
-        ul {
-            list-style: none;
-            padding: 0;
-        }
-        li {
-            margin: 15px 0;
+            color: #003366; /* Azul oscuro */
         }
         a {
+            display: block;
+            margin: 10px 0;
+            padding: 15px;
             text-decoration: none;
-            font-size: 18px;
-            font-weight: 500;
             color: #ffffff;
-            background: #00796b;
-            padding: 12px 25px;
-            border-radius: 8px;
-            transition: background 0.3s ease, transform 0.3s ease;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
         }
+        .facebook { background-color: #003366; /* Azul */ }
+        .twitter { background-color: #339933; /* Verde */ }
+        .instagram { background-color: #ffcc00; /* Amarillo */ color: #333; }
+        .linkedin { background-color: #003366; /* Azul */ }
+        .youtube { background-color: #339933; /* Verde */ }
         a:hover {
-            background: #004d40;
-            transform: translateY(-2px);
+            opacity: 0.9;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Redes Sociales BioConcentrados</h1>
-        <ul>
-            <li><a href="https://www.facebook.com/profile.php?id=100091273660699&mibextid=ZbWKwL" target="_blank">Facebook</a></li>
-            <li><a href="https://www.instagram.com/bioconcentrados_colombia?igsh=dXRhYW5hcWJveWR2" target="_blank">Instagram</a></li>
-            <li><a href="https://youtube.com/@BioConcentrados?feature=shared" target="_blank">YouTube</a></li>
-            <li><a href="https://www.bioconcentrados.com/" target="_blank">Mi Página Web</a></li>
-        </ul>
+        <h1>Conéctate con Nosotros</h1>
+        <a href="https://www.facebook.com/profile.php?id=100091273660699&mibextid=ZbWKwL" class="facebook" target="_blank">Facebook</a>
+        <a href="https://www.instagram.com/bioconcentrados_colombia?igsh=dXRhYW5hcWJveWR2" class="instagram" target="_blank">Instagram</a>
+        <a href="https://youtube.com/@BioConcentrados?feature=shared" class="Youtube" target="_blank">Youtube</a>
+        <a href="https://www.bioconcentrados.com/" class="Pagina Web" target="_blank">Pagina Web</a>
     </div>
 </body>
 </html>
